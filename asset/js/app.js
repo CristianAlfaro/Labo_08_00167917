@@ -28,6 +28,7 @@ navSlide();
 var cont = 1;
 var bitacoras = [];
 var formulario = document.getElementById("bitacora");
+var eliminado = document.getElementById("eliminar");
 
 formulario.addEventListener("submit", (evt) => {
     evt.preventDefault();
@@ -50,10 +51,11 @@ const crearElemento = (bitacora, tbody) => {
         let content = document.createTextNode(item);
         td.appendChild(content);
         tr.appendChild(td);
+        //tr.setAttribute('class','click');
     });
     tbody.appendChild(tr);
     console.log(tbody);
-    
+
 }
 
 const eliminar = (tbody) => {
@@ -65,6 +67,9 @@ const eliminar = (tbody) => {
 
 const agregar = () => {
     var eventtr = document.querySelectorAll(".click");
+    if(document.querySelector("#fecha").value == "" && document.querySelector("#descp").value== "" && document.querySelector("#cant").value== ""){
+
+    
     eventtr.forEach((item, index) => {
         item.addEventListener("click", () => {
             document.querySelector("#fecha").value = item.childNodes[0].textContent;
@@ -72,6 +77,7 @@ const agregar = () => {
             document.querySelector("#cant").value = item.childNodes[2].textContent;
         });
     })
+    } 
 }
 
 const mostrar = () => {
@@ -82,4 +88,39 @@ const mostrar = () => {
         crearElemento(item, document.querySelector(".tabla-btc tbody"));
     });
     agregar();
-} 
+}
+
+eliminado.addEventListener('click',eliminar(document.querySelector(".tabla-btc tbody")));
+
+
+var firstfield = document.getElementById("fecha");
+var secondfield = document.getElementById("descp");
+var thridfield = document.getElementById("cant");
+
+firstfield.oninput = () => {
+    var valor = firstfield.value;
+    if (valor == "" || valor == null) {
+        firstfield.style.backgroundColor = "white";
+    } else {
+        firstfield.style.backgroundColor = "#e2e2e2";
+    }
+}
+
+secondfield.oninput = () => {
+    var valor = secondfield.value;
+    if (valor == "" || valor == null) {
+        secondfield.style.backgroundColor = "white";
+    } else {
+        secondfield.style.backgroundColor = "#e2e2e2";
+    }
+}
+
+thridfield.oninput = () => {
+    var valor = thridfield.value;
+    if (valor == "" || valor == null) {
+        thridfield.style.backgroundColor = "white";
+    } else {
+        thridfield.style.backgroundColor = "#e2e2e2";
+    }
+}
+

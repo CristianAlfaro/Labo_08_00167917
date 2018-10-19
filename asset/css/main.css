@@ -20,7 +20,7 @@ nav
 
 .logo
 {
-    color: rgb(226, 226, 226);
+    color: #e2e2e2;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
@@ -178,7 +178,7 @@ textarea
 {
     resize: none;
 }
-.formulario input[type = number], input[type=date], textarea,input[type = submit]
+.formulario input[type = number], input[type=date], textarea,input[type = submit], input[type=button]
 {
     margin: 1em;
     width: 90%;
@@ -186,7 +186,7 @@ textarea
     padding: 10px;
 }
 
-.formulario input[type = submit]
+.formulario input[type = submit] , input[type=button]
 {
     
     background: #003c71;
